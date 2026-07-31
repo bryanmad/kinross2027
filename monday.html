@@ -730,13 +730,8 @@
                             // change < to >
                             //console.log("using useDataResults()");
                             document.getElementById("panel").style.display = "none";
-
-                            document.getElementById("mainpage").style.position = "";
-
                             useDataResults();
                         } else {
-                            document.getElementById("mainpage").style.position = "";
-
                             useDataHcp();
                         }
                     }
@@ -824,6 +819,8 @@
                 document.getElementById("box5").style.borderColor = "DarkSeaGreen";
                 document.getElementById("box6").style.borderColor = "DarkSeaGreen";
                 document.getElementById("box7").style.borderColor = "DarkSeaGreen";
+
+                document.getElementById("mainpage").style.position = "";
             }
 
             function useDataResults() {
@@ -902,6 +899,8 @@
                         //}
                     }, k * 300);
                 });
+
+                document.getElementById("mainpage").style.position = "";
             }
 
             function bodyUpdateHcps(nom, hcps, i) {
