@@ -730,8 +730,13 @@
                             // change < to >
                             //console.log("using useDataResults()");
                             document.getElementById("panel").style.display = "none";
+
+                            document.getElementById("mainpage").style.position = "";
+
                             useDataResults();
                         } else {
+                            document.getElementById("mainpage").style.position = "";
+
                             useDataHcp();
                         }
                     }
