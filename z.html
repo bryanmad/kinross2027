@@ -805,44 +805,45 @@
 <div id="countdown" onclick="nocountdown()"><img id="imgx" src="close.png" alt="x" style="float: left; height: 7vh;"></div>
 -->
     <script>
-      (function () {
-        var min_horizontal_move = 30;
-        var max_vertical_move = 30;
-        var within_ms = 1000;
+      var SwipeArea = document.querySelector("content");
+      var SwipeWidth = window.innerWidth / 2;
+      var SwipeWidthMax = 320;
 
-        var start_xPos;
-        var start_yPos;
-        var start_time;
-        function touch_start(event) {
-          start_xPos = event.touches[0].pageX;
-          start_yPos = event.touches[0].pageY;
-          start_time = new Date();
-        }
+      if (SwipeWidth > SwipeWidthMax) {
+        SwipeWidth = SwipeWidthMax;
+      }
 
-        function touch_end(event) {
-          var end_xPos = event.changedTouches[0].pageX;
-          var end_yPos = event.changedTouches[0].pageY;
-          var end_time = new Date();
-          let move_x = end_xPos - start_xPos;
-          let move_y = end_yPos - start_yPos;
-          let elapsed_time = end_time - start_time;
-          if (
-            Math.abs(move_x) > min_horizontal_move &&
-            Math.abs(move_y) < max_vertical_move &&
-            elapsed_time < within_ms
-          ) {
-            if (move_x < 0) {
-              alert("left");
-            } else {
-              alert("right");
-            }
+      var SwipeStartX = null;
+      var SwipeEndX = null;
+      var SwipeLengthX = null;
+
+      var SwipeStartY = null;
+      var SwipeEndY = null;
+      var SwipeLengthY = null;
+
+      SwipeArea.addEventListener("touchstart", SwipeStart, false);
+      SwipeArea.addEventListener("touchend", SwipeEnd, false);
+
+      function SwipeStart(evt) {
+        SwipeStartX = evt.changedTouches[0].clientX;
+        SwipeStartY = evt.changedTouches[0].clientY;
+      }
+
+      function SwipeEnd(evt) {
+        SwipeEndX = evt.changedTouches[0].clientX;
+        SwipeEndY = evt.changedTouches[0].clientY;
+
+        SwipeLengthX = SwipeStartX - SwipeEndX;
+        SwipeLengthY = SwipeStartY - SwipeEndY;
+
+        if (Math.abs(SwipeLengthX) > Math.abs(SwipeLengthY)) {
+          if (SwipeLengthX > SwipeWidth) {
+            /* left swipe */
+          } else if (SwipeLengthX < -SwipeWidth) {
+            /* right swipe */
           }
         }
-
-        var content = document.getElementById("content");
-        content.addEventListener("touchstart", touch_start);
-        content.addEventListener("touchend", touch_end);
-      })();
+      }
     </script>
   </body>
 </html>
