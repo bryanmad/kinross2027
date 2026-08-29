@@ -723,6 +723,9 @@
       #r1,
       #r2,
       #r3 {
+        position: fixed;
+        top: 0;
+        left: 0;
         height: 100vh;
         width: 100vw;
         color: white;
@@ -819,6 +822,9 @@
 <div id="countdown" onclick="nocountdown()"><img id="imgx" src="close.png" alt="x" style="float: left; height: 7vh;"></div>
 -->
     <script>
+      //document.getElementById("r1").style.display = "block";
+      //document.getElementById("wholecontent").display = "none";
+
       var SwipeArea = document.documentElement; //document.getElementById("wholecontent");
       var SwipeWidth = window.innerWidth / 3;
       var SwipeWidthMax = 320;
@@ -853,8 +859,8 @@
         if (Math.abs(SwipeLengthX) > Math.abs(SwipeLengthY)) {
           if (SwipeLengthX > SwipeWidth) {
             /* left swipe */
-            document.getElementById("r1").display = "block";
-            document.getElementById("wholecontent").display = "none";
+            document.getElementById("r1").style.display = "block";
+            document.getElementById("wholecontent").style.display = "none";
           } else if (SwipeLengthX < -SwipeWidth) {
             /* right swipe */
             //alert("right");
