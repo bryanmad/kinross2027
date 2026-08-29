@@ -825,9 +825,14 @@
 <div id="countdown" onclick="nocountdown()"><img id="imgx" src="close.png" alt="x" style="float: left; height: 7vh;"></div>
 -->
     <script>
-      //document.getElementById("r1").style.display = "block";
-      //document.getElementById("wholecontent").display = "none";
-
+      document.getElementById("wholecontent").style.display = "block";
+      document.getElementById("r1").style.display = "none";
+      document.getElementById("r2").style.display = "none";
+      document.getElementById("r3").style.display = "none";
+      console.log("start wholecontent = " + document.getElementById("wholecontent").style.display);
+      console.log("start r1 = " + document.getElementById("r1").style.display);
+      console.log("start r2 = " + document.getElementById("r2").style.display);
+      console.log("start r3 = " + document.getElementById("r3").style.display);
       var SwipeArea = document.documentElement; //document.getElementById("wholecontent");
       var SwipeWidth = window.innerWidth / 3;
       var SwipeWidthMax = 320;
@@ -871,13 +876,11 @@
               /* in wholecontent move to r1 */
               document.getElementById("r1").style.display = "block";
               document.getElementById("wholecontent").style.display = "none";
-            }
-            if (document.getElementById("r1").style.display == "block") {
+            } else if (document.getElementById("r1").style.display == "block") {
               /* in r1 move to r2 */
               document.getElementById("r2").style.display = "block";
               document.getElementById("r1").style.display = "none";
-            }
-            if (document.getElementById("wholecontent").style.display == "block") {
+            } else if (document.getElementById("r2").style.display == "block") {
               /* in r2 move to r3 */
               document.getElementById("r3").style.display = "block";
               document.getElementById("r2").style.display = "none";
