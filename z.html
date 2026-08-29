@@ -719,6 +719,17 @@
       #imagewrapper {
         position: absolute;
       }
+
+      #r1,
+      #r2,
+      #r3 {
+        height: 100vh;
+        width: 100vw;
+        color: white;
+        background: gray;
+        font-size: 20vh;
+        display: none;
+      }
     </style>
   </head>
   <body oncontextmenu="return false;">
@@ -738,6 +749,9 @@
     <div id="notavaialble"><img id="img" style="padding-top: 40vh; padding-right: 10vw;float: right; border: 0; height: 40vh; width: 80vw; " src="spain2025.png" alt="x"></div>
 
     -->
+    <div id="r1">r1</div>
+    <div id="r2">r2</div>
+    <div id="r3">r3</div>
 
     <div id="wholecontent">
       <div id="warning">Not available in landscape orientation</div>
@@ -842,7 +856,9 @@
             alert("left");
           } else if (SwipeLengthX < -SwipeWidth) {
             /* right swipe */
-            alert("right");
+            //alert("right");
+            document.getElementById("r1").display = block;
+            document.getElementById("wholecontent").display = "none";
           }
         }
       }
