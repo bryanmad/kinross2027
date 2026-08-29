@@ -860,6 +860,10 @@
         SwipeLengthY = SwipeStartY - SwipeEndY;
 
         if (Math.abs(SwipeLengthX) > Math.abs(SwipeLengthY)) {
+          console.log("wholecontent = " + document.getElementById("wholecontent").style.display);
+          console.log("r1 = " + document.getElementById("r1").style.display);
+          console.log("r2 = " + document.getElementById("r2").style.display);
+          console.log("r3 = " + document.getElementById("r3").style.display);
           if (SwipeLengthX > SwipeWidth) {
             /* left swipe */
             /* wholecontent > r1 > r2 > r3 */
