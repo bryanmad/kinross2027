@@ -853,12 +853,11 @@
         if (Math.abs(SwipeLengthX) > Math.abs(SwipeLengthY)) {
           if (SwipeLengthX > SwipeWidth) {
             /* left swipe */
-            alert("left");
+            document.getElementById("r1").display = "block";
+            document.getElementById("wholecontent").display = "none";
           } else if (SwipeLengthX < -SwipeWidth) {
             /* right swipe */
             //alert("right");
-            document.getElementById("r1").display = block;
-            document.getElementById("wholecontent").display = "none";
           }
         }
       }
