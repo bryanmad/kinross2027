@@ -885,10 +885,23 @@
               document.getElementById("r3").style.display = "block";
               document.getElementById("r2").style.display = "none";
             }
-          } else if (SwipeLengthX < -SwipeWidth) {
+          } else if (SwipeLengthX < SwipeWidth) {
             /* right swipe */
             /* r3 > r2 > r1 > wholecontent */
-            //alert("right");
+            /* wholecontent > r1 > r2 > r3 */
+            if (document.getElementById("r3").style.display == "block") {
+              /* in wholecontent move to r1 */
+              document.getElementById("r2").style.display = "block";
+              document.getElementById("r3").style.display = "none";
+            } else if (document.getElementById("r2").style.display == "block") {
+              /* in r1 move to r2 */
+              document.getElementById("r1").style.display = "block";
+              document.getElementById("r2").style.display = "none";
+            } else if (document.getElementById("r1").style.display == "block") {
+              /* in r2 move to r3 */
+              document.getElementById("wholecontent").style.display = "block";
+              document.getElementById("r1").style.display = "none";
+            }
           }
         }
       }
